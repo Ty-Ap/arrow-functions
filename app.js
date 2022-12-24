@@ -136,22 +136,32 @@ const objectLit=(key1,key2,key3) => ({
 console.log(objectLit());
 
 
-let sumAndProduct = function(a, b) {
+// let sumAndProduct = function(a, b) {
+//   let sum = a + b;
+//   let product = a * b;
+//   return [sum, product];
+// };
+
+const sumAndProduct=(a,b) => {
   let sum = a + b;
   let product = a * b;
   return [sum, product];
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(sumAndProduct(3, 9));
+console.log(sumAndProduct(3, 9));
 
 
-let message = function(name) {
+// let message = function(name) {
+//   return `Hello, ${name}!`;
+// };
+
+const message = name => {
   return `Hello, ${name}!`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(message('Allie'));
+console.log(message('Allie'));
 
 
 let Student = function(name, age, hometown) {
@@ -160,11 +170,18 @@ let Student = function(name, age, hometown) {
   this.hometown = hometown;
 };
 
+
+// let Student = studentInfo => ({
+//   name : studentInfo[0],
+//   age : studentInfo[1],
+//   hometown : studentInfo[2],
+// });
+
 let joe = new Student('Joe', 'Schmoe', 100);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-// console.log(joe);
+console.log(joe);
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -176,7 +193,7 @@ Student.prototype.greeting = function() {
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-// console.log(joe.greeting());
+console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -187,7 +204,7 @@ Student.courseName = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
@@ -198,17 +215,17 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scope();
+joe.scope();
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scopeArrow();
+joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
-// 1. What is "this" when joe.scope() is invoked?
+// 1. What is "this" when joe.scope() is invoked? the joe object/prototype
 //
-// 2. What is "this" when joe.scopeArrow() is invoked?
+// 2. What is "this" when joe.scopeArrow() is invoked? the lexical "this" because of the arrow function. in this case it would be global i believe.
 //
-// 3. Explain why "this" is different when an arrow function is used.
+// 3. Explain why "this" is different when an arrow function is used. this in an object or function refers to the surrounding code block or object etc. In arrow functions though, this is dynamic and lexically scoped. which means its often global by default, but is technically dynamic because arrow functions dont set their own "this" scope.
 //
